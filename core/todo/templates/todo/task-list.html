@@ -1,26 +1,57 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %} Task-List {% endblock %}
 
 {% block header_references %}
-    <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
 
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-</style>
-<link href="https://getbootstrap.com/docs/5.1/examples/sign-in/signin.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-  <h1>task list page</h1>
+<div class="modal modal-signin position-static d-block  py-5" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <!-- <h5 class="modal-title">Modal title</h5> -->
+        <h2 class="fw-bold mb-0">Todo App</h2>
+        <a type="button" class="btn-close" href="{% url 'logout-page' %}"></a>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+
+        <form class="pt-3" method="POST" action="{% url 'create-task-page' %}">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded-4" name="title" placeholder="Enter task title"
+              aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="submit">Add</button>
+          </div>
+
+
+          <hr class="my-4">
+          {% for task in tasks %}
+          <div class="input-group py-1">
+            <span type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+              {% if task.is_completed == True %}
+              <strike>{{task.title}}</strike>
+              {% else %}
+              <span>{{task}}</span>
+              {% endif %}
+            </span>
+            <a type="button" class="btn btn-danger" href="{% url 'delete-task-page' task.id %}"><i class="bi bi-trash"></i></a>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="{% url 'task-done-action' task.id %}">Done</a></li>
+              <li><a class="dropdown-item" href="{% url 'update-task-page' task.id %}">Edit</a></li>
+            </ul>
+          </div>
+
+          {% endfor %}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
