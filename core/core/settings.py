@@ -57,6 +57,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 LOGIN_URL = 'accounts/login/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 
