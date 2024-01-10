@@ -1,4 +1,5 @@
 services:
+
   backend:
     build: .
     container_name: backend
@@ -10,3 +11,21 @@ services:
     environment:
       - SECRET_KEY=test
       - DEBUG=True
+    depends_on:
+      - redis
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+
+  worker:
+    build: .
+    command: celery -A core worker -l INFO
+    volumes:
+      - ./core:/app
+    depends_on:
+      - backend
+      - redis
