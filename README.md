@@ -16,16 +16,17 @@ The following frameworks and technologies are used:
 * Bootstrap5
 
 
-<!-- Setup -->
-## Setup
+
+<!-- GETTING STARTED -->
+## Getting Started
 
 To get this repository, run the following command inside your git enabled terminal.
   ```sh
   git clone https://github.com/mirrzad/Django-todo-app
   ```
 
-<!-- GETTING STARTED -->
-## Getting Started
+<!-- Setup -->
+## Setup
 
 in order to run and use the application with docker-compose, all you have to do is to run the 
 command bellow in the same directory of docker-compose.yml file.
