@@ -40,7 +40,3 @@ then open the url below and now you can reach the index page of the app.
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License.
