@@ -1,8 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A simple todo app project with Django class based views and supporting REST-API using 
-django-restframework 
+A todo app application with Django class based views and Restful APIs.
 
 
 ### Built With
