@@ -1,7 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A todo app application with Django class based views and Restful APIs.
+A todo-list application with Django class based views and Restful APIs.
 
 
 ### Built With
