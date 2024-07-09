@@ -1,7 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A todo-list application with Django class based views and Restful APIs.
+A todo-list application with Django class based views and Restful APIs implemented on docker.
 
 
 ### Built With
@@ -13,7 +13,7 @@ The following frameworks and technologies are used:
 * Redis
 * Pytest
 * Bootstrap5
-
+* Docker
 
 
 <!-- GETTING STARTED -->
